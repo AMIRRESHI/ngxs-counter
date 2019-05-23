@@ -6,3 +6,7 @@ export class IncrementCounter {
 export class DecrementCounter {
   static readonly type = "[COUNTER] Decrement";
 }
+
+export class ResetCounter {
+  static readonly type = "[COUNTER] Reset";
+}

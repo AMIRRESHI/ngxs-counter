@@ -1,6 +1,6 @@
 import { State, Action, StateContext, Selector } from "@ngxs/store";
 import { Counter } from "../models/counter.model";
-import { IncrementCounter } from "../actions/counter.actions";
+import { IncrementCounter, DecrementCounter, ResetCounter } from "../actions/counter.actions";
 
 export class CounterStateModel {
   count: number;
@@ -31,4 +31,22 @@ export class CounterState {
   //     count: state.count + 1
   //   });
   // }
+
+  @Action(DecrementCounter)
+  decrementCounter({ getState, setState }) {
+    const state = getState();
+    setState({
+      count: state.count -1
+    });
+  }
+
+  @Action(ResetCounter)
+  resetCounter({ getState, setState }) {
+    const state = getState();
+    setState({
+      count: 0
+    });
+  }
+
+
 }

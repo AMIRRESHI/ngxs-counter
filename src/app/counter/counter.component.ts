@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Store, Select } from '@ngxs/store';
-import { IncrementCounter } from '../actions/counter.actions';
+import { IncrementCounter, DecrementCounter, ResetCounter } from '../actions/counter.actions';
 import { Observable } from 'rxjs';
 import { Counter } from '../models/counter.model';
 import { CounterState } from '../state/counter.state';
@@ -28,8 +28,16 @@ export class CounterComponent implements OnInit {
   ngOnInit() {
   }
 
-  onClick() {
+  decrement(){
+    this.store.dispatch(new DecrementCounter());
+  }
+
+  increment() {
     this.store.dispatch(new IncrementCounter());
+  }
+
+  reset(){
+    this.store.dispatch(new ResetCounter());
   }
 
 }
